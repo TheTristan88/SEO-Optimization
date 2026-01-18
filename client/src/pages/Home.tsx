@@ -196,19 +196,15 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Detail Sections */}
-              <div className="lg:col-span-8">
+              {/* Middle Row: Visual Previews and Detail Sections */}
+              <div className="lg:col-span-8 space-y-6">
                 <IssuesList data={data} />
+                <TechDetails data={data} />
               </div>
               
               <div className="lg:col-span-4 space-y-6">
                 <GooglePreview data={data} />
                 <SocialPreview data={data} />
-              </div>
-
-              {/* Bottom Row: Technical Data */}
-              <div className="lg:col-span-12">
-                <TechDetails data={data} />
               </div>
             </div>
           </motion.div>

@@ -18,7 +18,7 @@ export function TechDetails({ data }: TechDetailsProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4 }}
-      className="bg-card rounded-2xl shadow-sm border border-border overflow-hidden relative z-0"
+      className="bg-card rounded-2xl shadow-sm border border-border overflow-hidden"
     >
       <div className="p-6 border-b border-border bg-card">
         <div className="flex items-center gap-2">
