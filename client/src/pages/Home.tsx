@@ -6,6 +6,7 @@ import { useAnalyze } from "@/hooks/use-analyze";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScoreCard } from "@/components/ScoreCard";
+import { CategoryScores } from "@/components/CategoryScores";
 import { GooglePreview } from "@/components/GooglePreview";
 import { SocialPreview } from "@/components/SocialPreview";
 import { IssuesList } from "@/components/IssuesList";
@@ -161,7 +162,7 @@ export default function Home() {
                   <LayoutDashboard className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0">
-                  <h2 className="text-2xl font-bold text-foreground">Analysis Results</h2>
+                  <h2 className="text-2xl font-bold text-foreground">SEO Dashboard</h2>
                   <p className="text-muted-foreground text-sm truncate max-w-[200px] md:max-w-md">{data.url}</p>
                 </div>
               </div>
@@ -171,20 +172,37 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              {/* Top Row: Score & Stats */}
-              <div className="lg:col-span-4">
-                <ScoreCard data={data} />
+              {/* Summary Section */}
+              <div className="lg:col-span-12 space-y-6 mb-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <div className="lg:col-span-1">
+                    <ScoreCard data={data} />
+                  </div>
+                  <div className="lg:col-span-2">
+                    <div className="h-full flex flex-col justify-between space-y-6">
+                      <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6">
+                        <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
+                          <Sparkles className="w-5 h-5 text-primary" />
+                          Quick Summary
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          Your page has an overall score of {Math.round((Object.values(data.checks).filter(c => c.status === 'pass').length / Object.values(data.checks).length) * 100)}%. 
+                          We've identified {Object.values(data.checks).filter(c => c.status !== 'pass').length} areas that could be improved to help your site rank better and look professional on social platforms.
+                        </p>
+                      </div>
+                      <CategoryScores data={data} />
+                    </div>
+                  </div>
+                </div>
               </div>
-              
+
+              {/* Detail Sections */}
               <div className="lg:col-span-8">
                 <IssuesList data={data} />
               </div>
-
-              {/* Middle Row: Visual Previews */}
-              <div className="lg:col-span-6">
+              
+              <div className="lg:col-span-4 space-y-6">
                 <GooglePreview data={data} />
-              </div>
-              <div className="lg:col-span-6">
                 <SocialPreview data={data} />
               </div>
 
