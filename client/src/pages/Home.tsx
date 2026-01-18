@@ -26,7 +26,7 @@ export default function Home() {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { url: "" },
+    defaultValues: { url: "https://" },
   });
 
   const onSubmit = (values: FormValues) => {
