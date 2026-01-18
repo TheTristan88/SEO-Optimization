@@ -20,7 +20,7 @@ export function IssuesList({ data }: IssuesListProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 }}
-      className="bg-card rounded-2xl shadow-sm border border-border h-full overflow-hidden flex flex-col"
+      className="bg-card rounded-2xl shadow-sm border border-border overflow-hidden flex flex-col h-fit"
     >
       <div className="p-6 border-b border-border bg-card">
         <div className="flex items-center gap-2">
