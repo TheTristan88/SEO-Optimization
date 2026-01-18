@@ -30,10 +30,15 @@ app.use((req, res, next) => {
 
 const httpServer = createServer(app);
 
+// Simple wrapper to handle the request since registerRoutes is async
+let routesRegistered = false;
+
 export default async (req: Request, res: Response) => {
-  await registerRoutes(httpServer, app);
+  if (!routesRegistered) {
+    await registerRoutes(httpServer, app);
+    routesRegistered = true;
+  }
   
-  // Handle the request manually since we're in a serverless environment
-  // and the registerRoutes expects a long-running Express app
+  // Handle the request
   return app(req, res);
 };
