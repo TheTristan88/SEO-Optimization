@@ -31,7 +31,7 @@ export function IssuesList({ data }: IssuesListProps) {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto max-h-[400px] p-2">
+      <div className="p-4 space-y-2">
         {checks.map(([key, check], index) => {
           let Icon = CheckCircle2;
           let colorClass = "text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20";
@@ -53,16 +53,16 @@ export function IssuesList({ data }: IssuesListProps) {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * index }}
-              className={`flex items-start gap-4 p-4 mb-2 rounded-xl border ${borderClass} ${colorClass.split(' ')[1]} transition-all hover:translate-x-1`}
+              className={`flex items-start gap-3 p-3 mb-1 rounded-lg border ${borderClass} ${colorClass.split(' ')[1]} transition-all hover:translate-x-1`}
             >
               <div className={`mt-0.5 ${colorClass.split(' ')[0]}`}>
-                <Icon className="w-5 h-5" />
+                <Icon className="w-4 h-4" />
               </div>
-              <div>
-                <h4 className="font-semibold text-sm text-foreground capitalize">
+              <div className="min-w-0">
+                <h4 className="font-bold text-[13px] text-foreground capitalize leading-none">
                   {key.replace(/([A-Z])/g, ' $1').trim()}
                 </h4>
-                <p className="text-sm text-muted-foreground mt-0.5">{check.message}</p>
+                <p className="text-[12px] text-muted-foreground mt-1 leading-tight">{check.message}</p>
               </div>
             </motion.div>
           );
