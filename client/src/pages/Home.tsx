@@ -87,26 +87,26 @@ export default function Home() {
             )}
           </AnimatePresence>
 
-          <div className="max-w-xl mx-auto relative">
+          <div className="max-w-xl mx-auto relative px-2">
             <form onSubmit={form.handleSubmit(onSubmit)} className="relative z-10">
-              <div className="relative flex items-center">
-                <Input
-                  {...form.register("url")}
-                  placeholder="https://example.com"
-                  className="h-14 pl-12 pr-32 rounded-2xl border-2 border-border focus:border-primary shadow-lg shadow-primary/5 text-lg bg-card"
-                  disabled={isPending}
-                />
-                <Search className="absolute left-4 w-5 h-5 text-muted-foreground" />
-                <div className="absolute right-2 top-2 bottom-2">
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+              <div className="relative flex flex-col md:flex-row items-stretch md:items-center gap-3">
+                <div className="relative flex-1">
+                  <Input
+                    {...form.register("url")}
+                    placeholder="https://example.com"
+                    className="h-14 pl-12 pr-4 rounded-2xl border-2 border-border focus:border-primary shadow-lg shadow-primary/5 text-lg bg-card w-full"
                     disabled={isPending}
-                    className="h-full rounded-xl px-6 font-semibold shadow-md hover:shadow-lg transition-all"
-                  >
-                    {isPending ? "Scanning..." : "Analyze"}
-                  </Button>
+                  />
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 </div>
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  disabled={isPending}
+                  className="h-14 rounded-2xl px-8 font-semibold shadow-md hover:shadow-lg transition-all md:w-auto"
+                >
+                  {isPending ? "Scanning..." : "Analyze"}
+                </Button>
               </div>
               {form.formState.errors.url && (
                 <p className="text-red-500 text-sm mt-2 text-left ml-2 font-medium">
@@ -155,17 +155,17 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="max-w-7xl mx-auto"
           >
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/10 rounded-lg">
+                <div className="p-2 bg-primary/10 rounded-lg shrink-0">
                   <LayoutDashboard className="w-6 h-6 text-primary" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h2 className="text-2xl font-bold text-foreground">Analysis Results</h2>
-                  <p className="text-muted-foreground text-sm">{data.url}</p>
+                  <p className="text-muted-foreground text-sm truncate max-w-[200px] md:max-w-md">{data.url}</p>
                 </div>
               </div>
-              <Button variant="outline" onClick={handleReset} className="gap-2">
+              <Button variant="outline" onClick={handleReset} className="gap-2 w-full md:w-auto justify-center">
                 Analyze New URL <ArrowRight className="w-4 h-4" />
               </Button>
             </div>

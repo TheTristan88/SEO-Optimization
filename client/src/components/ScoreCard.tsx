@@ -50,11 +50,14 @@ export function ScoreCard({ data }: ScoreCardProps) {
         </div>
       </div>
 
-      <div className="flex items-end gap-3 mb-4">
-        <span className={`text-5xl font-extrabold ${statusColor}`}>
+      <div className="flex flex-col items-center justify-center gap-2 mb-4">
+        <span className={`text-6xl font-extrabold ${statusColor}`}>
           {score}
         </span>
-        <span className="text-xl font-medium text-muted-foreground mb-1.5">/ 100</span>
+        <div className={`flex items-center gap-2 px-3 py-1 rounded-full ${statusBg}`}>
+          <Icon className={`w-4 h-4 ${statusColor}`} />
+          <span className={`text-sm font-bold ${statusColor}`}>{verdict}</span>
+        </div>
       </div>
 
       <div className="space-y-3">
