@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import type { Server } from "http";
 import { storage } from "./storage.js";
-import { api, type AnalyzeResponse } from "@shared/routes.js";
+import { api, type AnalyzeResponse } from "../shared/routes.js";
 import { z } from "zod";
 import * as cheerio from 'cheerio';
 
@@ -132,8 +132,6 @@ export async function registerRoutes(
         });
       }
       console.error('Analysis error:', err);
-      // Log failed scan
-      // await storage.logScan({ url: req.body.url || 'unknown', status: 'failed' }); 
       res.status(500).json({ message: 'Failed to analyze website. Please check the URL and try again.' });
     }
   });

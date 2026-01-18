@@ -1,5 +1,5 @@
 import { db } from "./db.js";
-import { scans, type InsertScan, type Scan } from "@shared/schema.js";
+import { scans, type InsertScan, type Scan } from "../shared/schema.js";
 
 export interface IStorage {
   logScan(scan: InsertScan): Promise<Scan>;
