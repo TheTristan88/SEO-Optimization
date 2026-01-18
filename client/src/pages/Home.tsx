@@ -186,8 +186,8 @@ export default function Home() {
                           Quick Summary
                         </h3>
                         <p className="text-muted-foreground text-sm leading-relaxed">
-                          Your page has an overall score of {Math.round((Object.values(data.checks as any).filter((c: any) => c.status === 'pass').length / Object.values(data.checks as any).length) * 100)}%. 
-                          We've identified {Object.values(data.checks as any).filter((c: any) => c.status !== 'pass').length} areas that could be improved to help your site rank better and look professional on social platforms.
+                          Your page has an overall score of {Math.round((Object.values(data.checks as Record<string, any>).filter((c: any) => c.status === 'pass').length / Object.values(data.checks as Record<string, any>).length) * 100)}%. 
+                          We've identified {Object.values(data.checks as Record<string, any>).filter((c: any) => c.status !== 'pass').length} areas that could be improved to help your site rank better and look professional on social platforms.
                         </p>
                       </div>
                       <CategoryScores data={data} />
