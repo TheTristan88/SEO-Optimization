@@ -17,7 +17,7 @@ export function GooglePreview({ data }: GooglePreviewProps) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.1 }}
-      className="bg-card rounded-2xl p-5 shadow-sm border border-border h-full"
+      className="bg-card rounded-2xl p-5 shadow-sm border border-border h-fit"
     >
       <div className="flex items-center gap-2 mb-4">
         <div className="p-1.5 bg-blue-100 dark:bg-blue-900/30 rounded-lg">

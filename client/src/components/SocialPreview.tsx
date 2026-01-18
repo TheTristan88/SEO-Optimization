@@ -17,7 +17,7 @@ export function SocialPreview({ data }: SocialPreviewProps) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.2 }}
-      className="bg-card rounded-2xl p-6 shadow-sm border border-border h-full"
+      className="bg-card rounded-2xl p-6 shadow-sm border border-border h-fit"
     >
       <div className="flex items-center gap-2 mb-6">
         <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
